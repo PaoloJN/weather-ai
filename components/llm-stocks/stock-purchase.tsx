@@ -4,7 +4,7 @@ import { useId, useState } from 'react'
 import { useActions, useAIState, useUIState } from 'ai/rsc'
 import { formatNumber } from '@/lib/utils'
 
-import type { AI } from '../../app/action'
+import type { AI } from '../../lib/chat/action'
 
 export function Purchase({
   defaultAmount,

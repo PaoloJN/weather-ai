@@ -1,4 +1,4 @@
-import { Progress } from '../ui/progress'
+import { Progress } from '@/components/ui/progress'
 import { AirQualityData } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { ClassNameValue } from 'tailwind-merge'
@@ -9,7 +9,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from '../ui/card'
+} from '@/components/ui/card'
 
 interface AirQualityProps {
   data: AirQualityData

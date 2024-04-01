@@ -1,9 +1,9 @@
 import { BotCard, BotMessage } from '@/components/llm-stocks'
-import AirQuality from '@/components/weather/air-quality'
-import { UserMessage } from '@/components/weather/message'
-import WeatherAtmosphericConditions from '@/components/weather/weather-atmospheric-condition'
-import WeatherMap from '@/components/weather/weather-map'
-import CurrentWeatherSummary from '@/components/weather/weather-summary'
+import AirQuality from '@/components/llm-weather/air-quality'
+import { UserMessage } from '@/components/llm-weather/message'
+import WeatherAtmosphericConditions from '@/components/llm-weather/weather-atmospheric-condition'
+import CurrentWeatherSummary from '@/components/llm-weather/weather-temperature'
+import WeatherDaysForecast from '@/components/llm-weather/weather-daily-forecast'
 
 import {
   hourlyDummy,
@@ -12,6 +12,8 @@ import {
   airQualityDummy,
   arrayOfHourlyDummy
 } from '@/lib/types'
+import WeatherHourForecast from '@/components/llm-weather/weather-hourly-forecast'
+import Temperature from '@/components/llm-weather/weather-temperature'
 
 export default function Page() {
   return (
@@ -26,7 +28,7 @@ export default function Page() {
               </p>
             </UserMessage>
           </div>
-          <div className="pb-8">
+          {/* <div className="pb-8">
             <BotMessage className="mb-3">
               The weather in {cityDummy.name} is currently{' '}
               {hourlyDummy.weather[0].description} with a temperature of{' '}
@@ -39,8 +41,8 @@ export default function Page() {
                 city={cityDummy}
               />
             </BotCard>
-          </div>
-          <div className="pb-8">
+          </div> */}
+          {/* <div className="pb-8">
             <UserMessage>
               <p>
                 I want to know the weather in {cityDummy.name} today. Can you
@@ -66,19 +68,19 @@ export default function Page() {
                 help me with that?
               </p>
             </UserMessage>
-          </div>
-          <div className="pb-8">
+          </div> */}
+          {/* <div className="pb-8">
             <BotMessage className="mb-3">
-              The weather in {cityDummy.name} is currently{' '}
+              The weather in {cityDummy.name} is currently
               {hourlyDummy.weather[0].description} with a temperature of{' '}
               {Math.round(hourlyDummy.main.temp)}&deg;. Which is not a good day
               to take a ride on your bike.
             </BotMessage>
             <BotCard showAvatar={false}>
-              <CurrentWeatherSummary data={hourlyDummy} city={cityDummy} />
+              <Temperature data={hourlyDummy} />
             </BotCard>
-          </div>
-          <div className="pb-8">
+          </div> */}
+          {/* <div className="pb-8">
             <BotMessage className="mb-3">
               The weather in {cityDummy.name} is currently{' '}
               {hourlyDummy.weather[0].description} with a temperature of{' '}
@@ -86,23 +88,22 @@ export default function Page() {
               to take a ride on your bike.
             </BotMessage>
             <BotCard showAvatar={false}>
-              {/* <CurrentWeatherSummary data={hourlyDummy} city={cityDummy} /> */}
               <AirQuality data={airQualityDummy} />
             </BotCard>
-          </div>
+          </div> */}
+          {/* <div className="pb-8">
+            <BotMessage className="mb-3">
+              The weather in {cityDummy.name} is currently{' '}
+              {hourlyDummy.weather[0].description} with a temperature of{' '}
+              {Math.round(hourlyDummy.main.temp)}&deg;. Which is not a good day
+              to take a ride on your bike.
+            </BotMessage>
+            <BotCard showAvatar={false}>
+              <WeatherDaysForecast data={tenDayForecastDummy} />
+            </BotCard>
+          </div> */}
         </div>
       </div>
-      {/* <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
-          <WeatherWidgets
-            data={hourlyDummy}
-            city={cityDummy}
-            airQuality={airQualityDummy}
-            uvIndexForToday={3}
-          />
-          <HourlyForecast data={arrayOfHourlyDummy} />
-          <Map />
-          <OtherLargeCities />
-        </section> */}
     </>
   )
 }

@@ -1,4 +1,7 @@
 import { formatSunTimeWithAMPM } from '@/lib/utils/date'
+import Compass from '@/components/ui/compass'
+import { City, HourlyForecastData } from '@/lib/types'
+
 import {
   Card,
   CardContent,
@@ -6,9 +9,6 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
-
-import Compass from '@/components/ui/compass'
-import { City, HourlyForecastData } from '@/lib/types'
 
 // Atmospheric Conditions Panel: This combined component would display key weather metrics including precipitation, atmospheric pressure, and wind details. It indicates that there has been no precipitation in the last 3 hours, the atmospheric pressure is at 999 hPa suggesting an increased likelihood of weather changes, and there's a gentle wind from the south at a speed of 2 meters per second.
 

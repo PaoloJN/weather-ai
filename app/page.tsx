@@ -1,6 +1,6 @@
 'use client'
 
-import { type AI } from './action'
+import { type AI } from '../lib/chat/action'
 import { useEffect, useRef, useState } from 'react'
 import { useUIState, useActions } from 'ai/rsc'
 import { UserMessage } from '@/components/llm-stocks/message'
@@ -59,7 +59,6 @@ export default function Page() {
         ) : (
           <EmptyScreen
             submitMessage={async message => {
-              // Add user message UI
               setMessages(currentMessages => [
                 ...currentMessages,
                 {
@@ -68,7 +67,6 @@ export default function Page() {
                 }
               ])
 
-              // Submit and get response message
               const responseMessage = await submitUserMessage(message)
               setMessages(currentMessages => [
                 ...currentMessages,

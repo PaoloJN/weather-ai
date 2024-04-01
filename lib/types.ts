@@ -264,9 +264,9 @@ export const forecastDummy: ForecastData = {
   pressure: 1003,
   humidity: 42,
   weather: [
-    { id: 470, main: 'Rain', description: 'light rain', icon: '13n' },
-    { id: 409, main: 'Clouds', description: 'clear sky', icon: '09d' },
-    { id: 435, main: 'Clear', description: 'snow', icon: '01d' }
+    { id: 200, main: 'Rain', description: 'light rain', icon: '802n' },
+    { id: 200, main: 'Clouds', description: 'clear sky', icon: '802n' },
+    { id: 200, main: 'Clear', description: 'snow', icon: '802n' }
   ],
   speed: 12.14,
   deg: 123,

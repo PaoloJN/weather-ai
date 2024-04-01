@@ -1,40 +1,40 @@
-'use client';
+'use client'
 
-import { useState, useRef, useEffect, useId } from 'react';
-import { scaleLinear } from 'd3-scale';
-import { subMonths, format } from 'date-fns';
-import { useResizeObserver } from 'usehooks-ts';
-import { useAIState } from 'ai/rsc';
+import { useState, useRef, useEffect, useId } from 'react'
+import { scaleLinear } from 'd3-scale'
+import { subMonths, format } from 'date-fns'
+import { useResizeObserver } from 'usehooks-ts'
+import { useAIState } from 'ai/rsc'
 
-import type { AI } from '../../app/action';
+import type { AI } from '../../lib/chat/action'
 
 export function Stock({ name = 'DOGE', price = 12.34, delta = 1 }) {
-  const [history, setHistory] = useAIState<typeof AI>();
-  const id = useId();
+  const [history, setHistory] = useAIState<typeof AI>()
+  const id = useId()
 
   const [priceAtTime, setPriceAtTime] = useState({
     time: '00:00',
     value: price.toFixed(2),
-    x: 0,
-  });
+    x: 0
+  })
 
-  const [startHighlight, setStartHighlight] = useState(0);
-  const [endHighlight, setEndHighlight] = useState(0);
+  const [startHighlight, setStartHighlight] = useState(0)
+  const [endHighlight, setEndHighlight] = useState(0)
 
-  const chartRef = useRef<HTMLDivElement>(null);
+  const chartRef = useRef<HTMLDivElement>(null)
   const { width = 0 } = useResizeObserver({
     ref: chartRef,
-    box: 'border-box',
-  });
+    box: 'border-box'
+  })
 
   const xToDate = scaleLinear(
     [0, width],
-    [subMonths(new Date(), 6), new Date()],
-  );
+    [subMonths(new Date(), 6), new Date()]
+  )
   const xToValue = scaleLinear(
     [0, width],
-    [price - price / 2, price + price / 2],
-  );
+    [price - price / 2, price + price / 2]
+  )
 
   useEffect(() => {
     if (startHighlight && endHighlight) {
@@ -43,17 +43,17 @@ export function Stock({ name = 'DOGE', price = 12.34, delta = 1 }) {
         role: 'system' as const,
         content: `[User has highlighted dates between between ${format(
           xToDate(startHighlight),
-          'd LLL',
-        )} and ${format(xToDate(endHighlight), 'd LLL, yyyy')}`,
-      };
+          'd LLL'
+        )} and ${format(xToDate(endHighlight), 'd LLL, yyyy')}`
+      }
 
       if (history[history.length - 1]?.id === id) {
-        setHistory(prevHistory => [...prevHistory.slice(0, -1), message]);
+        setHistory(prevHistory => [...prevHistory.slice(0, -1), message])
       } else {
-        setHistory(prevHistory => [...prevHistory, message]);
+        setHistory(prevHistory => [...prevHistory, message])
       }
     }
-  }, [startHighlight, endHighlight]);
+  }, [startHighlight, endHighlight])
 
   return (
     <div className="p-4 text-green-400 border rounded-xl bg-zinc-950">
@@ -72,45 +72,45 @@ export function Stock({ name = 'DOGE', price = 12.34, delta = 1 }) {
         className="relative -mx-4 cursor-col-resize"
         onPointerDown={event => {
           if (chartRef.current) {
-            const { clientX } = event;
-            const { left } = chartRef.current.getBoundingClientRect();
+            const { clientX } = event
+            const { left } = chartRef.current.getBoundingClientRect()
 
-            setStartHighlight(clientX - left);
-            setEndHighlight(0);
+            setStartHighlight(clientX - left)
+            setEndHighlight(0)
 
             setPriceAtTime({
               time: format(xToDate(clientX), 'dd LLL yy'),
               value: xToValue(clientX).toFixed(2),
-              x: clientX - left,
-            });
+              x: clientX - left
+            })
           }
         }}
         onPointerUp={event => {
           if (chartRef.current) {
-            const { clientX } = event;
-            const { left } = chartRef.current.getBoundingClientRect();
+            const { clientX } = event
+            const { left } = chartRef.current.getBoundingClientRect()
 
-            setEndHighlight(clientX - left);
+            setEndHighlight(clientX - left)
           }
         }}
         onPointerMove={event => {
           if (chartRef.current) {
-            const { clientX } = event;
-            const { left } = chartRef.current.getBoundingClientRect();
+            const { clientX } = event
+            const { left } = chartRef.current.getBoundingClientRect()
 
             setPriceAtTime({
               time: format(xToDate(clientX), 'dd LLL yy'),
               value: xToValue(clientX).toFixed(2),
-              x: clientX - left,
-            });
+              x: clientX - left
+            })
           }
         }}
         onPointerLeave={() => {
           setPriceAtTime({
             time: '00:00',
             value: price.toFixed(2),
-            x: 0,
-          });
+            x: 0
+          })
         }}
         ref={chartRef}
       >
@@ -119,7 +119,7 @@ export function Stock({ name = 'DOGE', price = 12.34, delta = 1 }) {
             className="absolute z-10 flex gap-2 p-2 rounded-md pointer-events-none select-none bg-zinc-800 w-fit"
             style={{
               left: priceAtTime.x - 124 / 2,
-              top: 30,
+              top: 30
             }}
           >
             <div className="text-xs tabular-nums">${priceAtTime.value}</div>
@@ -137,7 +137,7 @@ export function Stock({ name = 'DOGE', price = 12.34, delta = 1 }) {
               width: endHighlight
                 ? endHighlight - startHighlight
                 : priceAtTime.x - startHighlight,
-              bottom: 0,
+              bottom: 0
             }}
           ></div>
         ) : null}
@@ -196,5 +196,5 @@ export function Stock({ name = 'DOGE', price = 12.34, delta = 1 }) {
         </svg>
       </div>
     </div>
-  );
+  )
 }
