@@ -23,10 +23,6 @@ Weather AI is weather chatbot that uses generative UI to provide a conversationa
   - [Radix UI](https://radix-ui.com) for headless component primitives
   - Icons from [Phosphor Icons](https://phosphoricons.com)
 
-## Roadmap
-
-- [] Convert to desktop app using [Tauri](https://tauri.app/)
-
 ## Running locally
 
 You will need to use the environment variables [defined in `.env.example`](.env.example)
