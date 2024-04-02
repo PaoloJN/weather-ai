@@ -1,8 +1,8 @@
-"use client"
-import React, { useState } from "react"
-import * as SliderPrimitive from "@radix-ui/react-slider"
+'use client'
+import React, { useState } from 'react'
+import * as SliderPrimitive from '@radix-ui/react-slider'
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
 type SliderProps = {
   className?: string
@@ -46,7 +46,7 @@ const TemperatureRange = React.forwardRef(
         onValueChange={handleValueChange}
         disabled={true}
         className={cn(
-          "relative flex w-full max-w-[17rem] touch-none select-none items-center md:max-w-[8rem]",
+          'relative flex w-full max-w-[17rem] touch-none select-none items-center md:max-w-[8rem]',
           className
         )}
         {...props}
