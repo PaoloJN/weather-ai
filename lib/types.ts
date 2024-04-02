@@ -109,6 +109,7 @@ export const hourlyDummy: HourlyForecastData = {
 
 export const arrayOfHourlyDummy = new Array(12).fill(hourlyDummy)
 
+// TODO: KEEP
 export type HourlyForecastResponse = {
   cod: string
   message: number
@@ -226,7 +227,7 @@ type FeelsLike = {
   morn: number
 }
 
-export type ForecastData = {
+export type Forecast = {
   dt: number
   sunrise: number
   sunset: number
@@ -243,7 +244,7 @@ export type ForecastData = {
   rain?: number
 }
 
-export const forecastDummy: ForecastData = {
+export const forecastDummy: Forecast = {
   dt: 1631931003,
   sunrise: 1631931003,
   sunset: 1631931003,
@@ -276,15 +277,15 @@ export const forecastDummy: ForecastData = {
   rain: 3.77
 }
 
-export type TenDayForecastData = {
+export type DailyForecastResponse = {
   city: City
   cod: string
   message: number
   cnt: number
-  list: ForecastData[]
+  list: Forecast[]
 }
 
-export const tenDayForecastDummy: TenDayForecastData = {
+export const tenDayForecastDummy: DailyForecastResponse = {
   city: cityDummy,
   cod: '200',
   message: 0,

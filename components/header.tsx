@@ -19,7 +19,7 @@ export async function Header() {
         <IconSeparator className="w-6 h-6 text-muted-foreground/20" /> */}
 
         <Link href="/">
-          <span className="text-lg font-bold flex items-center">
+          <span className="text-lg flex items-center">
             {/* <span className="text-lg font-semibold">Weather</span> */}
             Weather
             <IconSparkles className="inline mr-0 ml-0.5 w-4 sm:w-5 mb-1" />
