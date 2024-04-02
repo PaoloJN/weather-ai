@@ -7,7 +7,7 @@ Weather AI is weather chatbot that uses generative UI to provide a conversationa
 </p>
 
 <p align="center">
-  <a href=""><strong>Demo Video</strong></a> ·
+  <a href="https://youtu.be/oynNDJmp1E4"><strong>Demo Video</strong></a> ·
   <a href="#features"><strong>Features</strong></a> ·
   <a href="#running-locally"><strong>Running locally</strong></a>.
   <a href="#acknowledgments"><strong>Acknowledgments</strong></a>
