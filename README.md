@@ -45,6 +45,5 @@ Your app template should now be running on [localhost:3000](http://localhost:300
 This woun't be possible without the following resources:
 
 - [Vercel AI SDK](https://sdk.vercel.ai/docs)
-- [Vercel Templates](https://vercel.com/templates)
+- [Next Weather](https://github.com/DariusLukasukas/nextjs-weather-app)
 - [Shadcn UI](https://ui.shadcn.com)
-- [Ollama](https://ollama.com)

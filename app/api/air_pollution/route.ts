@@ -10,7 +10,7 @@ export async function GET(request: Request) {
   }
 
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`,
+    `https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&units=metric&appid=${API_KEY}`,
     { next: { revalidate: 900 } }
   )
 

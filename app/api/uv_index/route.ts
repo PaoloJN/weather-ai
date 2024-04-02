@@ -8,7 +8,7 @@ export async function GET(request: Request) {
   }
 
   const response = await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=uv_index_max,uv_index_clear_sky_max&timezone=auto&forecast_days=1`,
+    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=uv_index_max,uv_index_clear_sky_max&timezone=auto&forecast_days=1`,
     { next: { revalidate: 900 } }
   )
 
